@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_comanda"
+            android:icon="@drawable/ic_chat_black"
+            android:title="Nova Comanda"
+            />
+        <item android:id="@+id/nav_pedidos"
+            android:title="Status Pedido"
+            android:icon="@drawable/ic_forum_black"
+            />
+        <item android:id="@+id/nav_cardapio"
+            android:title="Cardápio"
+            android:icon="@drawable/ic_buscar_black"
+            />
+        <item
+            android:id="@+id/nav_adicionar"
+            android:icon="@drawable/ic_adicionar_black"
+            android:title="Adicionar"
+            />
+        <item
+            android:id="@+id/nav_config"
+            android:icon="@drawable/ic_configuracoes_black"
+            android:title="Configurações"
+            />
+        <item
+            android:id="@+id/nav_sair"
+            android:icon="@android:drawable/ic_lock_power_off"
+            android:title="Sair"
+            />
+    </group>
+
+</menu>
