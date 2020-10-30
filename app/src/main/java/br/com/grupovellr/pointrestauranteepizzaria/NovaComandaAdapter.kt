@@ -56,8 +56,8 @@ class NovaComandaAdapter (
                 override fun onError() {
                     holder.cardProgress.visibility = View.GONE
                 }
-            })
-
+            }
+        )
         holder.itemView.setOnClickListener {onClick(novaComanda)}
     }
 }
