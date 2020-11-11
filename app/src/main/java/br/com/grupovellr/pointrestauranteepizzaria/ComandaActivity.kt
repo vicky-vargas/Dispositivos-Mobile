@@ -3,6 +3,7 @@ package br.com.grupovellr.pointrestauranteepizzaria
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
 import android.view.Menu
@@ -14,44 +15,21 @@ import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_tela_inicial.*
 import kotlinx.android.synthetic.main.toolbar.*
 
-class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSelectedListener {
+class ComandaActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
 
     private val context: Context get() = this
-    private var novaComanda = listOf<NovaComanda>()
-    private var REQUEST_CADASTRO = 1
-    private var REQUEST_REMOVE= 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tela_inicial)
-        imagem1.setImageResource(R.drawable.imagem_comanda)
-        imagem4.setImageResource(R.drawable.imagen_status_pedido)
-        imagem3.setImageResource(R.drawable.localizacao_img)
+        setContentView(R.layout.activity_comanda)
 
-        val args = intent.extras
-        val nome = args?.getString("nome_usuario")
-        val numero = args?.getInt("numero")
-
-        Toast.makeText(this, "Olá $nome", Toast.LENGTH_LONG).show()
-
-        botaoPedido.setOnClickListener {
-            val intent = Intent(this, AbrirComandaActivity::class.java)
-            startActivity(intent)
-        }
-
-        botaoPedidos.setOnClickListener {
-            val intent = Intent(this, StatusPedidoActivity::class.java)
-            startActivity(intent)
-        }
-
-        botaoMapa.setOnClickListener {
-            val intent = Intent(this, MapasActivity::class.java)
-            startActivity(intent)
-        }
-
-        supportActionBar?.title = "Menu"
+        supportActionBar?.title = "Nova Comanda"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         configuraMenulateral()
+
+        val NovaComanda  = intent?.getSerializableExtra("novaComanda")
+
+        Toast.makeText(this, "Nova Comanda: $NovaComanda", Toast.LENGTH_LONG).show()
     }
 
     private fun configuraMenulateral() {
@@ -66,13 +44,6 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         toogle.syncState()
 
         menu_lateral.setNavigationItemSelectedListener (this)
-    }
-
-    fun cliqueSair() {
-        val returnIntent = Intent();
-        returnIntent.putExtra("result","Saída do PointApp");
-        setResult(Activity.RESULT_OK,returnIntent);
-        finish();
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -125,17 +96,13 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
                 val intent = Intent(this, AdicionarActivity::class.java)
                 startActivity(intent)
             }
-
             android.R.id.home-> {
                 if(layoutMenuLateral.isDrawerOpen(Gravity.LEFT))
                     layoutMenuLateral.closeDrawer(Gravity.LEFT)
                 else
                     layoutMenuLateral.openDrawer(Gravity.LEFT)
             }
-
         }
-
         return super.onOptionsItemSelected(item)
     }
-
 }
