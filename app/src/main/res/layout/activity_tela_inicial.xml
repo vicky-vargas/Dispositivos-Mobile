@@ -109,7 +109,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/botaoPedidos"
-                    app:srcCompat="@drawable/imagen_cardapio"
+                    app:srcCompat="@drawable/img_mapa"
                     android:contentDescription="TODO" />
 
                 <TextView
@@ -117,7 +117,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Verificar Localização"
+                    android:text="Consulta ao Mapa"
                     android:textColor="@android:color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -128,7 +128,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:background="#7E8DDD"
-                    android:text="abrir localização"
+                    android:text="Abrir Mapa"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -137,8 +137,6 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </LinearLayout>
-
-
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"

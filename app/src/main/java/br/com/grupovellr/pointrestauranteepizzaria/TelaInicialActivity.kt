@@ -26,7 +26,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         setContentView(R.layout.activity_tela_inicial)
         imagem1.setImageResource(R.drawable.imagem_comanda)
         imagem4.setImageResource(R.drawable.imagen_status_pedido)
-        imagem3.setImageResource(R.drawable.localizacao_img)
+        imagem3.setImageResource(R.drawable.img_mapa)
 
         val args = intent.extras
         val nome = args?.getString("nome_usuario")

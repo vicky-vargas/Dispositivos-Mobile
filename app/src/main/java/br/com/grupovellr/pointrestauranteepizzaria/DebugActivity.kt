@@ -15,36 +15,36 @@ open class DebugActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "$className onStart() executado()")
+        Log.d(TAG, "$className onStart() chamado()")
     }
 
     override fun onStart() {
         super.onStart()
-        Log.d(TAG, "$className onStart() executado()")
+        Log.d(TAG, "$className onStart() chamado()")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d(TAG, "$className onResume() executado()")
+        Log.d(TAG, "$className onResume() chamado()")
     }
 
     override fun onRestart() {
         super.onRestart()
-        Log.d(TAG, "$className onRestart() executado()")
+        Log.d(TAG, "$className onRestart() chamado()")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.d(TAG, "$className onPause() executado()")
+        Log.d(TAG, "$className onPause() chamado()")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.d(TAG, "$className onStop() executado()")
+        Log.d(TAG, "$className onStop() chamado()")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d(TAG, "$className onDestroy() executado()")
+        Log.d(TAG, "$className onDestroy() chamado()")
     }
 }
