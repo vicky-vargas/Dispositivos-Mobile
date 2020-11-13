@@ -8,23 +8,28 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_tela_inicial.*
 import kotlinx.android.synthetic.main.toolbar.*
 
-class AdicionarActivity : DebugActivity(), NavigationView.OnNavigationItemSelectedListener{
+class ComandaActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
 
     private val context: Context get() = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_adicionar)
+        setContentView(R.layout.activity_comanda)
 
-        supportActionBar?.title = "Adicionar"
+        supportActionBar?.title = "Nova Comanda"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         configuraMenulateral()
+
+        val NovaComanda  = intent?.getSerializableExtra("novaComanda")
+
+        Toast.makeText(this, "Nova Comanda: $NovaComanda", Toast.LENGTH_LONG).show()
     }
 
     private fun configuraMenulateral() {
@@ -73,14 +78,24 @@ class AdicionarActivity : DebugActivity(), NavigationView.OnNavigationItemSelect
         layoutMenuLateral.closeDrawer(GravityCompat.START)
         return true
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_adicionar, menu)
+        menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
+
         when (id) {
+            R.id.action_config -> {
+                val intent = Intent(this, ConfigActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.action_menu_presenter -> {
+                val intent = Intent(this, AdicionarActivity::class.java)
+                startActivity(intent)
+            }
             android.R.id.home-> {
                 if(layoutMenuLateral.isDrawerOpen(Gravity.LEFT))
                     layoutMenuLateral.closeDrawer(Gravity.LEFT)
